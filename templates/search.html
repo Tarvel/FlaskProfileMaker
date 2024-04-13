@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/"><small>back</small></a>
+
+<h2>Search Result<h2>    
+<br>
+<div class="content-section">
+    <form method='POST', action="" class="small-form">
+        <fieldset>
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <fieldset class="form-group">
+    
+            <div class="col-5"><h5>
+                {{ form.search (class = 'form-control form-control-lg') }}
+            </h5></div>
+             
+        
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit (class="btn btn-outline-info")}}
+        </div>
+        </form>
+    </div>
+    
+    <br>
+    
+    {% if namez or emailz %}
+             {% for i in range(namez|length) %}
+                <h5>{{ i+1 }}<a href = "{{ url_for("profile", profile_id=namez[i].id)}}"> {{ namez[i].name|title}}</a>
+                <p>`   {{ namez[i].email }}</p></h5>     
+            {% endfor %}
+
+            {% for i in range(emailz|length) %}
+            <h5>{{ i+1 }}<a href = "{{ url_for("profile", profile_id=emailz[i].id)}}"> {{ emailz[i].name|title}}</a>
+            <p>`   {{ emailz[i].email }}</p></h5>     
+             {% endfor %}
+
+    {% else %}
+        <h5>{{message}}</h5>
+    {% endif %}
+    
+
+    
+    {% endblock content %}

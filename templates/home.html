@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="content-section">
+    <form method='POST', action="" class="small-form">
+        <fieldset>
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <fieldset class="form-group">
+
+                <div class="col-5">
+                {{ form.search (class = 'form-control form-control-lg') }}
+                </div>
+         
+    
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit (class="btn btn-outline-info")}}
+        </div>
+    </form>
+</div>
+
+<br>
+
+
+{% for detail in profile %}
+ <h2>   <a href = "{{ url_for("profile", profile_id=detail.id)}}">{{ detail.name|title }}</a></h2> 
+{% endfor %}
+
+<a href="{{ url_for("register") }}"> Create new Profile</a>
+
+<br>
+
+
+
+
+
+
+
+
+{% endblock content %}
+

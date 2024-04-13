@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-section">
+    <form method='POST' action="">
+        {{ form.hidden_tag() }}
+
+        <fieldset class="form-group">
+    
+            <div class="col-5">
+                {{ form.name.label (class = 'form-control-label') }}
+                {{ form.name (class = 'form-control form-control-lg') }}
+            </div>
+
+            <div class="col-5">
+                {{ form.email.label (class = 'form-control-label') }} 
+                {{ form.email (class = 'form-control form-control-lg') }}
+            </div>
+
+            <div class="col-5">
+                {{ form.age.label (class = 'form-control-label') }} 
+                {{ form.age (class = 'form-control form-control-lg') }}
+            </div>
+
+            <div class="col-5">
+                {{ form.gender.label (class = 'form-label') }}  {{ form.gender (class = 'form-select') }}
+            </div>
+        
+            <div class="col-5">
+                {{ form.hobby.label (class = 'form-control-label') }} 
+                {{ form.hobby (class = 'form-control form-control-lg') }}
+            </div>
+
+        </fieldset>
+
+        <div class="form-group">
+            {{ form.submit (class="btn btn-outline-info")}}
+        </div>
+
+    </form>
+    </div>
+ {% endblock %}
